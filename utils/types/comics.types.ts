@@ -26,6 +26,10 @@ export type ComicType = {
     characters: CharactersType;
 };
 
+export type ComicsPropsType = {
+    data: ComicType;
+  };
+
 type CharactersType = {
     available: number;
     returned: number;
@@ -89,22 +93,20 @@ interface IURL {
     url: string;
 }
 
-export type ComicsPropsType = {
-    data: ComicType;
-  };
 
-export type FormType = {
-    nome: string;
-    sobrenome: string;
-    email: string;
-    endereco: string;
-    numero: number;
-    complemento: string;
-    cep: number;
-    cidade: string;
-    estado: string;
-    cartao: number;
-    nomeCartao: string;
-    validade: Date;
-    cvv: number;
-  };
+
+// export type FormType = {
+//     nome: string;
+//     sobrenome: string;
+//     email: string;
+//     endereco: string;
+//     numero: number;
+//     complemento: string;
+//     cep: number;
+//     cidade: string;
+//     estado: string;
+//     cartao: number;
+//     nomeCartao: string;
+//     validade: Date;
+//     cvv: number;
+//   };

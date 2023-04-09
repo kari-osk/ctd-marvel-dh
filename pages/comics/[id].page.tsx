@@ -7,6 +7,8 @@ import { getComic } from "dh-marvel/services/marvel/marvel.service";
 import Head from "next/head";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Image from "next/image";
+import path from "path";
+
 
 export default function ComicInfo(props: ComicsPropsType) {
   const data = props;
@@ -16,7 +18,7 @@ export default function ComicInfo(props: ComicsPropsType) {
   return (
     <>
       <Head>
-        <title>DH-Marvel | {comics.title}</title>
+        <title>DH-Marvel | </title>
         <meta name="description" content="Detalhe sobre o quadrinho" />
       </Head>
       <Container>
@@ -29,6 +31,7 @@ export default function ComicInfo(props: ComicsPropsType) {
         >
           Voltar para a página anterior
         </Button>
+        { comics ?
         <Grid
           container
           rowSpacing={4}
@@ -122,6 +125,7 @@ export default function ComicInfo(props: ComicsPropsType) {
             </Box>
           </Grid>
         </Grid>
+         : <Typography variant="h2">Erro ao carregar a página. Tente novamente</Typography>}
       </Container>
     </>
   );
@@ -136,6 +140,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   const data = await getComic(Number(params.id));
+  
 
   return {
     props: {

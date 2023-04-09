@@ -73,11 +73,3 @@ export const getStaticProps: GetStaticProps = async () => {
 
 };
 
-// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-//   const { id } = query;
-//   const comic = await getComic(Number(id));
-
-//   return {
-//     props: { comic },
-//   };
-// };
