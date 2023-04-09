@@ -5,6 +5,7 @@ export type CheckoutInput = {
     email: string;
     address: {
       address1: string;
+      address2: string;
       number: string;
       complement: string | null;
       city: string;
