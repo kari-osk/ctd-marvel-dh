@@ -62,7 +62,7 @@ const Checkout: NextPage<ComicPropType> = ({ comic }: ComicPropType) => {
     };
 
     await axios
-      .post("http://localhost:3000/api/checkout", payload)
+      .post("https://ctd-marvel-dh.vercel.app/api/checkout", payload)
       .then((response) => {
         handleCheckout(response.data.data);
         router.push('/checkout/confirmed');

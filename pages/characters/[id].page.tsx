@@ -1,23 +1,25 @@
-import Link from "next/link";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { useRouter } from "next/router";
-import { ComicsPropsType } from "utils/types/comics.types";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
-import { getComic } from "dh-marvel/services/marvel/marvel.service";
+import { getCharacter } from "dh-marvel/services/marvel/marvel.service";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { ICharacter } from "utils/types/comics.types";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import { Button, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 
-export default function ComicInfo(props: ComicsPropsType) {
-  const data = props;
-  const comics = data?.data;
+type PropsDetails = {
+  data: ICharacter;
+};
 
+export default function CharacterInfo({ data }: PropsDetails) {
   const { back } = useRouter();
+  const character = data;
+
+
   return (
     <>
       <Head>
-        <title>DH-Marvel</title>
-        <meta name="description" content="Detalhe sobre o quadrinho" />
+        <title>DH-Marvel | {character.name}</title>
+        <meta name="description" content="Detalhe sobre o personagem" />
       </Head>
       <Container>
         <Button
@@ -29,89 +31,30 @@ export default function ComicInfo(props: ComicsPropsType) {
         >
           Voltar para a página anterior
         </Button>
-        <Grid
-          container
-          rowSpacing={4}
-          sx={{ flexDirection: { xs: "column", md: "row" } }}
-        >
-          <Grid item xs={12} sm={12} md={6}>
-            <Image
-              src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-              alt={comics.title}
-              width={500}
-              height={750}
-            />
+        <Grid container sx={{ flexDirection: { xs: "column", md: "row" } }}>
+          <Grid item xs={12} sm={12} md={6} sx={{ paddingBottom: "1rem" }}>
+            {character.thumbnail ? (
+              <Image
+                src={`${character?.thumbnail.path}.${character?.thumbnail.extension}`}
+                alt={character.name}
+                width={500}
+                height={500}
+              />
+            ) : (
+              <Typography>Imagem indisponível</Typography>
+            )}
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Box sx={{ padding: "1rem" }}>
-              <Typography variant="h1">{comics.title}</Typography>
-              <Typography paragraph={true} sx={{ paddingTop: "1rem" }}>
-                {comics.description}
+            <Typography variant="h1">{character.name}</Typography>
+            {character.description ? (
+              <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
+                {character.description}
               </Typography>
-              {comics.stock > 0 ? (
-                <>
-                  <Typography variant="h2" sx={{ paddingY: "1rem" }}>
-                    R$ {comics.price}
-                  </Typography>
-                  <Button variant="contained">
-                    <Link
-                      href={`/checkout/${comics.id}`}
-                      style={{ textDecoration: "none", color: "#FFF" }}
-                    >
-                      Comprar agora
-                    </Link>
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Typography
-                    color="red[900]"
-                    variant="h3"
-                    sx={{ color: "#A52A2A", paddingBottom: "1rem" }}
-                  >
-                    Produto indisponível
-                  </Typography>
-
-                  {/* <Button
-                    variant="contained"
-                    disabled
-                    sx={{ marginRight: "1rem" }}
-                  >
-                    Buy
-                  </Button> */}
-                  <Button variant="contained">
-                    <Link href={"/"}>Veja outros produtos</Link>
-                  </Button>
-                </>
-              )}
-            </Box>
-
-            <Box sx={{ padding: "1rem" }}>
-              <Typography variant="h2" sx={{ paddingY: "1rem" }}>
-                Personagens da história
+            ) : (
+              <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
+                Descrição do personagem indisponível.
               </Typography>
-
-              {!comics.characters.items ||
-              comics.characters.items.length === 0 ? (
-                <Typography paragraph={true}>
-                  Informação indisponível
-                </Typography>
-              ) : (
-                comics.characters.items.map((item) => (
-                  <>
-                    <li>
-                      <Link
-                        href={`/characters/${item.resourceURI
-                          .split("characters/")
-                          .pop()}`}
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  </>
-                ))
-              )}
-            </Box>
+            )}
           </Grid>
         </Grid>
       </Container>
@@ -119,19 +62,19 @@ export default function ComicInfo(props: ComicsPropsType) {
   );
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   return {
-    paths: [{ params: { id: "10200" } }],
-    fallback: "blocking",
+    paths: [{ params: { id: "1009176" } }],
+    fallback: true,
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const data = await getComic(Number(params.id));
+export async function getStaticProps({ params }: any) {
+  const data = await getCharacter(Number(params.id));
 
   return {
     props: {
       data,
     },
   };
-};
+}

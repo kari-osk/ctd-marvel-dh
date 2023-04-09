@@ -7,7 +7,7 @@ describe("IndexPage", () => {
     it("should render the title", () => {
       render(<Index />);
       const foo = 1
-      const title = screen.getByText("Sample");
+      const title = screen.getByText("Destaque da semana");
       expect(title).toBeInTheDocument();
     });
   });
