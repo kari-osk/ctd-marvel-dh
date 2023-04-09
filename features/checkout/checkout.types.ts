@@ -1,11 +1,12 @@
 export type CheckoutInput = {
   customer: {
-    name: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     email: string;
     address: {
       address1: string;
-      address2: string | null;
+      number: string;
+      complement: string | null;
       city: string;
       state: string;
       zipCode: string;
