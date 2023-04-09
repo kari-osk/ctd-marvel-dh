@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { ParsedUrlQuery } from "querystring";
 import { useRouter } from "next/router";
 import { ComicsPropsType } from "utils/types/comics.types";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
