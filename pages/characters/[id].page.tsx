@@ -16,7 +16,7 @@ export default function ComicInfo(props: ComicsPropsType) {
   return (
     <>
       <Head>
-        <title>DH-Marvel | {comics.title}</title>
+        <title>DH-Marvel</title>
         <meta name="description" content="Detalhe sobre o quadrinho" />
       </Head>
       <Container>
