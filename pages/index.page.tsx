@@ -5,7 +5,7 @@ import { ICharacter } from "utils/types/comics.types";
 import CardList from "dh-marvel/components/card";
 import { Stack } from "@mui/material";
 import { baseURL, hash, ts } from "dh-marvel/services/marvel/marvelApi.service";
-
+import Hero from "dh-marvel/components/hero";
 
 interface IComic {
   id: number;
@@ -27,7 +27,6 @@ interface IComicsProps {
 const itemsPerPage = 12;
 
 const Index = ({ comics }: IComicsProps) => {
-
   return (
     <>
       <Head>
@@ -36,6 +35,7 @@ const Index = ({ comics }: IComicsProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Stack spacing={2}>
+        <Hero />
         <BodySingle title={"Destaque da semana"}>
           <CardList comics={comics} />
         </BodySingle>
