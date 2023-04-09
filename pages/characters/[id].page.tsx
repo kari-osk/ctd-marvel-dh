@@ -45,7 +45,8 @@ export default function CharacterInfo({ data }: PropsDetails) {
             )}
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="h1">{character.name}</Typography>
+            <Typography variant="h1">Detalhes do personagem</Typography>
+            <Typography variant="h2" sx={{ paddingTop: "1rem" }}>Nome: {character.name}</Typography>
             {character.description ? (
               <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
                 {character.description}

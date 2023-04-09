@@ -7,7 +7,6 @@ import { getComic } from "dh-marvel/services/marvel/marvel.service";
 import Head from "next/head";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import Image from "next/image";
-import path from "path";
 
 
 export default function ComicInfo(props: ComicsPropsType) {
@@ -38,19 +37,11 @@ export default function ComicInfo(props: ComicsPropsType) {
           sx={{ flexDirection: { xs: "column", md: "row" } }}
         >
           <Grid item xs={12} sm={12} md={6}>
-            {/* <img
-              src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
-              alt={comics.title}
-              width={"90%"}
-              height={"100%"}
-              style={{ paddingBottom: "2rem" }}
-            /> */}
             <Image
               src={`${comics.thumbnail.path}.${comics.thumbnail.extension}`}
               alt={comics.title}
               width={500}
               height={750}
-              
             />
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
