@@ -1,13 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import CharacterInfo from "./[id].page";
+import Checkout from "./[id].page";
 
-describe("CharacterInfo", () => {
+describe("Checkout", () => {
   describe("when rendering default", () => {
     it("should render the title", () => {
-      render(<CharacterInfo />);
-      const foo = 1
-      const title = screen.getByText("Detalhes do personagem");
+      render(<Checkout />);
+      const title = screen.getByText("Preencha o formulário para finalizar a compra");
       expect(title).toBeInTheDocument();
     });
+    
   });
 });

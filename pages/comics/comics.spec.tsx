@@ -1,12 +1,13 @@
 import { render, screen } from "@testing-library/react";
-import CharacterInfo from "./[id].page";
+import ComicInfo from "./[id].page";
+
 
 describe("CharacterInfo", () => {
   describe("when rendering default", () => {
     it("should render the title", () => {
-      render(<CharacterInfo />);
+      render(<ComicInfo />);
       const foo = 1
-      const title = screen.getByText("Detalhes do personagem");
+      const title = screen.getByText("Detalhes do produto");
       expect(title).toBeInTheDocument();
     });
   });

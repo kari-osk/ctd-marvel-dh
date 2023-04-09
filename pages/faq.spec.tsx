@@ -1,13 +1,16 @@
 import { render, screen } from "@testing-library/react";
-import CharacterInfo from "./[id].page";
+import FaqAccordion from "./faq.page";
 
-describe("CharacterInfo", () => {
+
+describe("FaqAccordion", () => {
   describe("when rendering default", () => {
     it("should render the title", () => {
-      render(<CharacterInfo />);
-      const foo = 1
-      const title = screen.getByText("Detalhes do personagem");
+      render(<FaqAccordion />);
+      const title = screen.getByText("Perguntas frequentes");
       expect(title).toBeInTheDocument();
     });
+    
   });
 });
+
+

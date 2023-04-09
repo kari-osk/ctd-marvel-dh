@@ -49,7 +49,8 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: "1px solid rgba(0, 0, 0, .125)",
 }));
 
-export default function CustomizedAccordions() {
+
+export default function FaqAccordion() {
   const [expanded, setExpanded] = React.useState<string | false>("");
 
   const handleChange =

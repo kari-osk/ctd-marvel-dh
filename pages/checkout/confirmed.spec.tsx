@@ -1,12 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import CharacterInfo from "./[id].page";
+import Confirmed from "./confirmed.page";
 
-describe("CharacterInfo", () => {
+
+
+describe("Confirmed", () => {
   describe("when rendering default", () => {
     it("should render the title", () => {
-      render(<CharacterInfo />);
+      render(<Confirmed />);
       const foo = 1
-      const title = screen.getByText("Detalhes do personagem");
+      const title = screen.getByText("Compra realizada com sucesso");
       expect(title).toBeInTheDocument();
     });
   });

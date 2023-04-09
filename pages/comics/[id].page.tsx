@@ -46,7 +46,8 @@ export default function ComicInfo(props: ComicsPropsType) {
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <Box sx={{ padding: "1rem" }}>
-              <Typography variant="h1">{comics.title}</Typography>
+              <Typography variant="h1">Detalhes do produto</Typography>
+              <Typography variant="h2" sx={{ paddingTop: "1rem" }}>Título: {comics.title}</Typography>
               <Typography paragraph={true} sx={{ paddingTop: "1rem" }}>
                 {comics.description}
               </Typography>
@@ -74,13 +75,6 @@ export default function ComicInfo(props: ComicsPropsType) {
                     Produto indisponível
                   </Typography>
 
-                  {/* <Button
-                    variant="contained"
-                    disabled
-                    sx={{ marginRight: "1rem" }}
-                  >
-                    Buy
-                  </Button> */}
                   <Button variant="contained">
                     <Link href={"/"}>Veja outros produtos</Link>
                   </Button>
