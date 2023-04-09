@@ -36,8 +36,8 @@ import {
             <Grid item>
               <Card
                 sx={{
-                  maxWidth: 220,
-                  minHeight: 350,
+                  maxWidth: 200,
+                  minHeight: 320,
                   cursor: 'pointer',
                   transitionProperty: "transform",
                     "&:hover": {
