@@ -66,7 +66,7 @@ export default function CharacterInfo({ data }: PropsDetails) {
 export const getStaticPaths = async () => {
   return {
     paths: [{ params: { id: "1009176" } }],
-    fallback: true,
+    fallback: "blocking",
   };
 };
 
