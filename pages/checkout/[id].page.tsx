@@ -65,7 +65,7 @@ const Checkout: NextPage<ComicPropType> = ({ comic }: ComicPropType) => {
       .post("http://localhost:3000/api/checkout", payload)
       .then((response) => {
         handleCheckout(response.data.data);
-        router.push('checkout/confirmed');
+        router.push('/checkout/confirmed');
       })
       .catch((err) => {
         setOpen(true);
