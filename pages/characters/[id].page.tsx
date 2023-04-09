@@ -3,7 +3,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { ICharacter } from "utils/types/comics.types";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
-import { Button, Container, Grid, Typography } from "@mui/material";
+import { Button, Container, Grid, Typography, Box } from "@mui/material";
 import Image from "next/image";
 
 type PropsDetails = {
@@ -13,7 +13,6 @@ type PropsDetails = {
 export default function CharacterInfo({ data }: PropsDetails) {
   const { back } = useRouter();
   const character = data;
-
 
   return (
     <>
@@ -45,17 +44,21 @@ export default function CharacterInfo({ data }: PropsDetails) {
             )}
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <Typography variant="h1">Detalhes do personagem</Typography>
-            <Typography variant="h2" sx={{ paddingTop: "1rem" }}>Nome: {character.name}</Typography>
-            {character.description ? (
-              <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
-                {character.description}
+            <Box sx={{paddingX:"1rem"}}>
+              <Typography variant="h1">Detalhes do personagem</Typography>
+              <Typography variant="h2" sx={{ paddingTop: "1rem" }}>
+                Nome: {character.name}
               </Typography>
-            ) : (
-              <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
-                Descrição do personagem indisponível.
-              </Typography>
-            )}
+              {character.description ? (
+                <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
+                  {character.description}
+                </Typography>
+              ) : (
+                <Typography paragraph={true} sx={{ paddingY: "1rem" }}>
+                  Descrição do personagem indisponível.
+                </Typography>
+              )}
+            </Box>
           </Grid>
         </Grid>
       </Container>
