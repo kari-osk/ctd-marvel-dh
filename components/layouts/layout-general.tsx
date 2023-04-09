@@ -12,7 +12,7 @@ const LayoutGeneral: FC<PropsWithChildren> = ({
     <>
       <Stack direction={"column"} height={"100%"}>
         <GeneralHeader />
-        <Box display={"flex"} flexGrow={1} justifyContent={"center"}>
+        <Box display={"flex"} flexGrow={1} justifyContent={"center"} alignItems={"center"}>
           {children}
         </Box>
         <GeneralFooter />

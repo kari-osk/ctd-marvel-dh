@@ -29,6 +29,7 @@ import {
         columns={{ xs: 4, sm: 8, md: 12 }}
         paddingY={"2rem"}
         justifyContent={"center"}
+        alignItems={"center"}
       >
         {comics?.map((comic) => (
           <Link href={`/comics/${comic.id}`} key={comic.id}>
