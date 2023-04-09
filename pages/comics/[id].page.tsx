@@ -134,7 +134,7 @@ export default function ComicInfo(props: ComicsPropsType) {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [{ params: { id: "10200" } }],
-    fallback: true,
+    fallback: "blocking",
   };
 };
 

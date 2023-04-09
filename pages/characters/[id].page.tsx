@@ -18,7 +18,7 @@ export default function CharacterInfo({ data }: PropsDetails) {
   return (
     <>
       <Head>
-        <title>DH-Marvel | {character.name}</title>
+        <title>DH-Marvel</title>
         <meta name="description" content="Detalhe sobre o personagem" />
       </Head>
       <Container>
