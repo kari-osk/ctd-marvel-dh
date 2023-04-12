@@ -1,6 +1,8 @@
 import Link from "next/link";
 import {
+  Button,
     Card,
+    CardActions,
     CardContent,
     CardMedia,
     Grid,
@@ -66,9 +68,14 @@ import {
                   </Typography>
                 </CardContent>
   
-                {/* <CardActions>
-                  <Button size="small">+ informações</Button>
-                </CardActions> */}
+                <CardActions>
+                  <Button size="small" href={`/comics/${comic.id}`} sx={{
+                    color: "#343a40",
+                    "&:hover": {
+                      color: "#4361ee"
+                    }
+                  }}>+ informações</Button>
+                </CardActions>
               </Card>
             </Grid>
           </Link>
